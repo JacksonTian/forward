@@ -1,0 +1,27 @@
+{
+  "name": "forward",
+  "version": "0.0.1",
+  "description": "Forward request to a special path",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "dependencies": {
+    "mime": ">=1.2.4",
+    "connect": "~1.8.7"
+  },
+  "devDependencies": {
+    "should": "*",
+    "mocha": "*",
+    "dox": "*"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "forward"
+  ],
+  "author": "Jackson Tian",
+  "license": "MIT"
+}
