@@ -9,11 +9,12 @@
   },
   "dependencies": {
     "mime": ">=1.2.4",
-    "connect": "~1.8.7"
+    "connect": ">=1.8.7"
   },
   "devDependencies": {
     "should": "*",
     "mocha": "*",
+    "supertest": "*",
     "dox": "*"
   },
   "scripts": {

@@ -1,5 +1,6 @@
 var connect = require('connect');
 var forward = require('../');
+var request = require('supertest');
 
 var app = connect();
 
@@ -15,32 +16,23 @@ describe('forward', function () {
   });
 
   it('should forward to /assets/favicon.ico', function (done) {
-    app.request()
+    request(app)
     .get('/favicon.ico')
-    .end(function(res){
-      res.should.header('Content-Type', 'image/x-icon');
-      res.statusCode.should.be.equal(200);
-      done();
-    });
+    .expect(200)
+    .expect('Content-Type', 'image/x-icon', done);
   });
 
   it('should forward to err', function (done) {
-    app.request()
+    request(app)
     .get('/test.ico')
-    .end(function(res){
-      res.should.header('Content-Type', 'text/plain');
-      res.statusCode.should.be.equal(404);
-      done();
-    });
+    .expect(404)
+    .expect('Content-Type', 'text/plain', done);
   });
 
   it('should default handled', function(done){
-    app.request()
+    request(app)
     .get('/hehe')
-    .end(function(res){
-      res.statusCode.should.be.equal(200);
-      res.body.toString().should.equal('{"echo":"default handle"}');
-      done();
-    });
+    .expect(200)
+    .expect('{"echo":"default handle"}', done);
   });
 });
