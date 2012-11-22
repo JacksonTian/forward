@@ -24,5 +24,10 @@
     "forward"
   ],
   "author": "Jackson Tian",
-  "license": "MIT"
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JacksonTian/forward.git"
+  }
 }
