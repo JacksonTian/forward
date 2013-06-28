@@ -8,6 +8,8 @@ var app = connect();
 app.use('/favicon.ico', forward(__dirname + '/assets/favicon.ico'));
 app.use('/test.ico', forward(__dirname + '/assets/inexist.ico'));
 app.use('/humans.txt', forward(__dirname + '/assets/humans.txt', {charset: 'utf-8'}));
+app.use('/noext', forward(__dirname + '/assets/noext', {mime: 'text/plain'}));
+app.use('/noext2', forward(__dirname + '/assets/noext'));
 
 app.use(function (req, res) {
   res.end(JSON.stringify({"echo": "default handle"}));
@@ -60,5 +62,19 @@ describe('forward', function () {
     .get('/hehe')
     .expect(200)
     .expect('{"echo":"default handle"}', done);
+  });
+
+  it('should use custom mime when no extention file', function(done){
+    request(app)
+    .get('/noext')
+    .expect(200)
+    .expect('Content-Type', 'text/plain', done);
+  });
+
+  it('should default when no extention file', function(done){
+    request(app)
+    .get('/noext2')
+    .expect(200)
+    .expect('Content-Type', 'application/octet-stream', done);
   });
 });
