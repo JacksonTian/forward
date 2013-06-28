@@ -1,10 +1,9 @@
 {
   "name": "forward",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Forward request to a special path",
   "main": "index.js",
   "directories": {
-    "doc": "doc",
     "test": "test"
   },
   "dependencies": {
