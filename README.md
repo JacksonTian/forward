@@ -1,5 +1,6 @@
-Forward
+Forward [![Build Status](https://secure.travis-ci.org/JacksonTian/forward.png?branch=master)](http://travis-ci.org/JacksonTian/forward) [![Coverage Status](https://coveralls.io/repos/JacksonTian/forward/badge.png)](https://coveralls.io/r/JacksonTian/forward)
 ====
+
 # 起源
 为了提高静态文件的性能，我们的站点做了为静态文件的路由添加前缀的工作。具体测试数据和原委请参加苏千的这篇文章：[给 connect 的 static 模块加上url路径前缀](http://cnodejs.org/topic/4fce14e0e5e72c25180b51d1)。其收效是明显的。
 
@@ -19,7 +20,7 @@ npm install forward
 ```
 var app = connect();
 app.use('/favicon.ico', forward(__dirname + '/assets/favicon.ico'));
-app.use('/robots.txt', forward(__dirname + '/assets/robots.txt'));
+app.use('/robots.txt', forward(__dirname + '/assets/robots.txt', {charset: 'utf-8'}));
 ```
 
 # 许可证

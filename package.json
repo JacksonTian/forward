@@ -15,10 +15,17 @@
     "should": "*",
     "mocha": "*",
     "supertest": "*",
+    "blanket": "*",
+    "travis-cov": "*",
+    "coveralls": "*",
+    "mocha-lcov-reporter": "*",
+    "pedding": "*",
     "dox": "*"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "make test-all",
+    "blanket": { "pattern": "forward/lib" },
+    "travis-cov": { "threshold": 100 }
   },
   "keywords": [
     "forward"
