@@ -1,7 +1,7 @@
 var connect = require('connect');
 var forward = require('../');
+var should = require('should');
 var request = require('supertest');
-var pedding = require('pedding');
 
 var app = connect();
 
@@ -28,8 +28,6 @@ describe('forward', function () {
   });
 
   it('should GET /humans.txt forward to /assets/humans.txt with charset', function (done) {
-    done = pedding(2, done);
-
     request(app)
     .get('/humans.txt')
     .expect(200)
@@ -37,8 +35,7 @@ describe('forward', function () {
     .expect('Content-Length', '84')
     .expect('Cache-Control', 'public, max-age=86400')
     .expect('Content-Type', 'text/plain; charset=utf-8', function (err) {
-      done(err);
-
+      should.not.exist(err);
       // from cache
       request(app)
       .get('/humans.txt')

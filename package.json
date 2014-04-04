@@ -17,13 +17,18 @@
     "blanket": "*",
     "travis-cov": "*",
     "coveralls": "*",
-    "mocha-lcov-reporter": "*",
-    "pedding": "*",
-    "dox": "*"
+    "mocha-lcov-reporter": "*"
   },
   "scripts": {
-    "test": "make test-all",
-    "blanket": { "pattern": "forward/lib" },
+    "test": "make test-all"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "forward/lib",
+      "data-cover-flags": {
+        "debug": false
+      }
+    },
     "travis-cov": { "threshold": 100 }
   },
   "keywords": [
